@@ -12,7 +12,7 @@ const Filter = (props) => {
         fetch('https://www.mocky.io/v2/5a25fade2e0000213aa90776')
             .then((res) => res.json())
             .then((data) => {
-                // console.log(data.filters[1].values)
+                
                 const countries = data.filters[1].values;
                 const newCountry = [];
 

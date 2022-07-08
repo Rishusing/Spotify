@@ -46,7 +46,7 @@ const PlayList = () => {
                         },
                     })
                     .then((res) => {
-                        // console.log(res.data.playlists.items);
+                        
                         setPlaylist(res.data.playlists.items)
                     })
                     .catch((event) => {
@@ -67,7 +67,7 @@ const PlayList = () => {
         getData();
         const interval = setInterval(() => {
             getData();
-        }, 300000);
+        }, 30000);
         return () => clearInterval(interval);
     
 

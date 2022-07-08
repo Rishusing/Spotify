@@ -39,14 +39,6 @@ const Filter = (props) => {
         })
     }, [])
 
-    if (!flag) {
-        return (
-            <div>
-                <ToastContainer />
-            </div>
-        )
-    }
-
     return (
         <div>
             <Select className='select' placeholder="Default country is India" onChange={(e) => { props.onChange(e)}} options={country} />

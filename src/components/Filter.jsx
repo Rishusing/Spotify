@@ -39,13 +39,7 @@ const Filter = (props) => {
         })
     }, [])
 
-    if (!flag) {
-        return (
-            <div>
-                <ToastContainer />
-            </div>
-        )
-    }
+    
 
     return (
         <div>

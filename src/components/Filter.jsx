@@ -12,7 +12,7 @@ const Filter = (props) => {
 
     useEffect(() => {
 
-        axios.get('http://www.mocky.io/v2/5a25fade2e0000213aa90776#').then((res) => {
+        axios.get('http://www.mocky.io/v2/5a25fade2e0000213aa90776').then((res) => {
 
             const countries = res.data.filters[1].values;
             const newCountry = [];
@@ -39,7 +39,13 @@ const Filter = (props) => {
         })
     }, [])
 
-    
+    if (!flag) {
+        return (
+            <div>
+                <ToastContainer />
+            </div>
+        )
+    }
 
     return (
         <div>

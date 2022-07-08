@@ -1,42 +1,31 @@
 import React, { useEffect, useState } from 'react'
 import Select from 'react-select'
-import axios from 'axios'
-import { ToastContainer, toast } from 'react-toastify';
+
 import 'react-toastify/dist/ReactToastify.css';
 
 const Filter = (props) => {
 
     const [country, setCountry] = useState([]);
-    const [flag, setFlag] = useState(false);
-    // const [name, setName] = useState({});
 
     useEffect(() => {
 
-        axios.get('http://www.mocky.io/v2/5a25fade2e0000213aa90776').then((res) => {
+        fetch('http://www.mocky.io/v2/5a25fade2e0000213aa90776')
+            .then((res) => res.json())
+            .then((data) => {
+                // console.log(data.filters[1].values)
+                const countries = data.filters[1].values;
+                const newCountry = [];
 
-            const countries = res.data.filters[1].values;
-            const newCountry = [];
-
-            for (let i = 0; i < countries.length; i++){
-                const obj = {
-                    value: countries[i].value,
-                    label: countries[i].name
+                for (let i = 0; i < countries.length; i++){
+                    const obj = {
+                        "value": countries[i].value,
+                        "label": countries[i].name
+                    }
+                    newCountry.push(obj);
                 }
-                newCountry.push(obj);
-            }
-            setCountry(newCountry)
-            setFlag(true)
-        }).catch(() => {
-            toast.error( "Network issue", {
-                position: "top-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
+                setCountry(newCountry)
             });
-        })
+
     }, [])
 
     return (

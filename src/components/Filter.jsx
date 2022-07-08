@@ -9,7 +9,7 @@ const Filter = (props) => {
 
     useEffect(() => {
 
-        fetch('http://www.mocky.io/v2/5a25fade2e0000213aa90776')
+        fetch('https://www.mocky.io/v2/5a25fade2e0000213aa90776')
             .then((res) => res.json())
             .then((data) => {
                 // console.log(data.filters[1].values)
